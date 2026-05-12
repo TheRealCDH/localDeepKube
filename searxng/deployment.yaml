@@ -17,19 +17,28 @@ spec:
       labels:
         app.kubernetes.io/name: searxng
     spec:
+      initContainers:
+        - name: init-config
+          image: busybox
+          command:
+            - sh
+            - -c
+            - cp /tmp/config/settings.yml /etc/searxng/settings.yml && chown 1000:1000 /etc/searxng/settings.yml
+          volumeMounts:
+            - name: config-tmp
+              mountPath: /tmp/config
+              readOnly: true
+            - name: config-dir
+              mountPath: /etc/searxng
       containers:
         - name: searxng
           image: searxng/searxng:latest
           ports:
             - containerPort: 8080
               name: http
-          env:
-            - name: SEARXNG_BASE_URL
-              value: "false"
           volumeMounts:
-            - name: config
-              mountPath: /etc/searxng/settings.yml
-              subPath: settings.yml
+            - name: config-dir
+              mountPath: /etc/searxng
           resources:
             requests:
               cpu: 100m
@@ -57,6 +66,8 @@ spec:
             periodSeconds: 15
             failureThreshold: 5
       volumes:
-        - name: config
+        - name: config-tmp
           configMap:
             name: searxng-config
+        - name: config-dir
+          emptyDir: {}

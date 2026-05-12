@@ -4,10 +4,8 @@ server:
   secret_key: "changeme-in-production-k8s-secret"
   bind_address: "0.0.0.0"
   port: 8080
-  base_url: false
   limiter: false
   image_proxy: false
-  public_instance: false
   method: GET
 
 search:
