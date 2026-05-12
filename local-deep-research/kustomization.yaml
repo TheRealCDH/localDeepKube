@@ -11,7 +11,7 @@ configMapGenerator:
     literals:
       - LDR_LLM_PROVIDER=openai_endpoint
       - LDR_LLM_OPENAI_ENDPOINT_URL=http://litellm:4000/v1
-      - LDR_LLM_MODEL=deepseek-v4-flash
+      - LDR_LLM_OPENAI_ENDPOINT_API_KEY=not-needed
       - LDR_SEARCH_ENGINE_WEB_SEARXNG_DEFAULT_PARAMS_INSTANCE_URL=http://searxng:8080
       - LDR_APP_ALLOW_REGISTRATIONS=true
       - LDR_DATA_DIR=/data
