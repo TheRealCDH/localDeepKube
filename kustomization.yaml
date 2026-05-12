@@ -8,3 +8,4 @@ resources:
   - litellm
   - searxng
   - local-deep-research
+  - tailscale-service.yaml
