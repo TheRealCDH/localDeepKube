@@ -1,3 +1,5 @@
+use_default_settings: true
+
 server:
   secret_key: "changeme-in-production-k8s-secret"
   bind_address: "0.0.0.0"
@@ -25,43 +27,45 @@ outgoing:
   max_request_timeout: 30.0
   useragent_suffix: ""
 
+enabled_plugins:
+  - "Basic Engine"
+
 engines:
   - name: google
     engine: google
     shortcut: g
     disabled: false
-
   - name: duckduckgo
     engine: duckduckgo
     shortcut: ddg
     disabled: false
-
   - name: wikipedia
     engine: wikipedia
     shortcut: wp
     disabled: false
-
   - name: bing
     engine: bing
     shortcut: bi
     disabled: false
-
   - name: arxiv
     engine: arxiv
     shortcut: ar
     disabled: false
-
   - name: pubmed
     engine: pubmed
     shortcut: pm
     disabled: false
-
   - name: semascholar
     engine: semascholar
     shortcut: ss
     disabled: false
-
   - name: news
     engine: google_news
     shortcut: gn
     disabled: false
+
+disabled_engines:
+  - yep
+  - yahoo
+  - startpage
+  - qwant
