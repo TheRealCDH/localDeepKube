@@ -1,5 +1,3 @@
-use_default_settings: true
-
 server:
   secret_key: "changeme-in-production-k8s-secret"
   bind_address: "0.0.0.0"
@@ -8,16 +6,12 @@ server:
   image_proxy: false
   method: GET
 
-# Disable all bot detection - internal cluster use only
-botdetection:
-  ip_limit: 0
-
 search:
   safe_search: 0
   autocomplete: ""
   formats:
+    - html
     - json
-  rate_limit: false
 
 ui:
   static_use_hash: true
@@ -30,10 +24,6 @@ outgoing:
   request_timeout: 10.0
   max_request_timeout: 30.0
   useragent_suffix: ""
-  proxies: ""
-
-enabled_plugins:
-  - "Basic Engine"
 
 engines:
   - name: google
@@ -75,9 +65,3 @@ engines:
     engine: google_news
     shortcut: gn
     disabled: false
-
-disabled_engines:
-  - yep
-  - yahoo
-  - startpage
-  - qwant
