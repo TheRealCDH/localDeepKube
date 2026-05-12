@@ -1,0 +1,32 @@
+model_list:
+  - model_name: deepseek-v4-flash
+    litellm_params:
+      model: openrouter/deepseek/deepseek-v4-flash
+      api_key: os.environ/OPENROUTER_API_KEY
+  - model_name: claude-sonnet-4
+    litellm_params:
+      model: openrouter/anthropic/claude-sonnet-4-20250514
+      api_key: os.environ/OPENROUTER_API_KEY
+  - model_name: claude-sonnet-4-thinking
+    litellm_params:
+      model: openrouter/anthropic/claude-sonnet-4-20250514
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_headers:
+        X-Title: litellm-gateway
+  - model_name: gpt-4o
+    litellm_params:
+      model: openrouter/openai/gpt-4o
+      api_key: os.environ/OPENROUTER_API_KEY
+  - model_name: qwen-32b
+    litellm_params:
+      model: openrouter/qwen/qwen-3-32b
+      api_key: os.environ/OPENROUTER_API_KEY
+  - model_name: gemini-flash
+    litellm_params:
+      model: openrouter/google/gemini-2.5-flash-preview-04-17
+      api_key: os.environ/OPENROUTER_API_KEY
+
+general_settings:
+  allowed_routes:
+    - chat_completions
+    - models_list

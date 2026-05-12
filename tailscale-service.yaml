@@ -1,0 +1,21 @@
+# Tailscale operator will expose LDR's web UI on your tailnet.
+# The service will be reachable at:
+#   http://local-deep-research  (no DNS suffix needed on tailnet)
+#
+# Prerequisite: Tailscale operator installed in cluster.
+# kubectl apply -f tailscale-service.yaml --namespace=agent
+apiVersion: v1
+kind: Service
+metadata:
+  name: local-deep-research-tailscale
+  annotations:
+    tailscale.com/expose: "true"
+    tailscale.com/tags: "tag:localdeepkube"
+spec:
+  selector:
+    app.kubernetes.io/name: local-deep-research
+  ports:
+    - port: 5000
+      targetPort: 5000
+      name: http
+  type: ClusterIP
