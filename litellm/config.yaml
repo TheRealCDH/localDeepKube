@@ -26,7 +26,4 @@ model_list:
       model: openrouter/google/gemini-2.5-flash-preview-04-17
       api_key: os.environ/OPENROUTER_API_KEY
 
-general_settings:
-  allowed_routes:
-    - chat_completions
-    - models_list
+general_settings: {}
