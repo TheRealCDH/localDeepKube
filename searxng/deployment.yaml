@@ -17,6 +17,7 @@ spec:
       labels:
         app.kubernetes.io/name: searxng
     spec:
+      enableServiceLinks: false
       initContainers:
         - name: init-config
           image: busybox
