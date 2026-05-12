@@ -8,6 +8,10 @@ server:
   image_proxy: false
   method: GET
 
+# Disable all bot detection - internal cluster use only
+botdetection:
+  ip_limit: 0
+
 search:
   safe_search: 0
   autocomplete: ""
