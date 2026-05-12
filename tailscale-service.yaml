@@ -6,6 +6,8 @@ metadata:
   name: local-deep-research-tailscale
   annotations:
     tailscale.com/expose: "true"
+    tailscale.com/tags: "tag:k8s-operator"
+    tailscale.com/hostname: "local-deep-research"
 spec:
   selector:
     app.kubernetes.io/name: local-deep-research
