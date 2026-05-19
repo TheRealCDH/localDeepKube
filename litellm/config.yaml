@@ -44,3 +44,9 @@ model_list:
       output_cost_per_token: 0.0000025
 
 general_settings: {}
+
+litellm_settings:
+  # Silently drop provider-unsupported params (e.g. 'thinking' sent by OpenClaw
+  # to deepseek-v4-flash on OpenRouter, which returns 400 UnsupportedParamsError
+  # otherwise). Models that DO support those params still receive them.
+  drop_params: true
